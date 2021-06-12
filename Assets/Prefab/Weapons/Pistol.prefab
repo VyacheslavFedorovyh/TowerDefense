@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd463f7830c42a40a9d20f21d0a1cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: "\u041F\u0438\u0441\u0442\u043E\u043B\u0435\u0442"
-  _price: 0
+  _label: Pistol
+  _price: 1
   _icon: {fileID: 21300000, guid: 11f0000bed8415b4092d26ac81165dde, type: 3}
-  _isBuyed: 1
-  CyclicRate: 1
+  _isBuyed: 0
+  _cyclicRate: 0.2
   Bullet: {fileID: 7075380404137942707, guid: 9046f2cf5211df74a9751b50e5bff486, type: 3}

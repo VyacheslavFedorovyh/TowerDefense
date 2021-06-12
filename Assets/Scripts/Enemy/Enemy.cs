@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
 		{
 			Died?.Invoke(this);
 			GetComponent<BoxCollider2D>().isTrigger = false;
+			Destroy(gameObject, 8f);
 		}
 	}
 }

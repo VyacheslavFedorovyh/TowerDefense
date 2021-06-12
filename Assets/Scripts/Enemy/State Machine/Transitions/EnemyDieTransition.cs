@@ -17,11 +17,6 @@ public class EnemyDieTransition : Transition
 		_enemy.Died += Died;
 	}
 
-	//private void OnDisable()
-	//{
-	//	_enemy.Died -= Died;
-	//}
-
 	private void Died(Enemy enemy)
 	{
 		_enemy.Died -= Died;

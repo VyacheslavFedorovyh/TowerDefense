@@ -40,12 +40,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4821135000410459500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd463f7830c42a40a9d20f21d0a1cb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 769bb3f631b472f4f82cc2dcb45f2c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Shotgun
-  _price: 0
+  _price: 5
   _icon: {fileID: 21300000, guid: fb5caa2d77b96b840bafd0d5be32a871, type: 3}
-  _isBuyed: 1
-  CyclicRate: 4
-  Bullet: {fileID: 7075380404137942707, guid: 9046f2cf5211df74a9751b50e5bff486, type: 3}
+  _isBuyed: 0
+  _cyclicRate: 1
+  Bullet: {fileID: 7075380404137942707, guid: 4c4ac0af7c2e5bb4d910fbc322406da0, type: 3}
+  _spreadAngle: 7

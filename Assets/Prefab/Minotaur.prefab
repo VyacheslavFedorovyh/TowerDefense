@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581eb6f39a1b62149ad582bb198919ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 4
+  _health: 100
   _reward: 1
 --- !u!114 &2416412539131462702
 MonoBehaviour:
@@ -213,7 +213,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 2416412539131462698}
   - {fileID: 2416412539131462700}
-  _damage: 5
+  _damage: 10
   _delay: 1
 --- !u!114 &2416412539131462698
 MonoBehaviour:
