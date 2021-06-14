@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public abstract class ProductView : MonoBehaviour
+public class ProductView : MonoBehaviour
 {
 	[SerializeField] private TMP_Text _label;
 	[SerializeField] private TMP_Text _price;

@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 	public int CurrentHealth { get; private set; }
 	public int Money { get; private set; }
 
-	public event UnityAction<int,int> HealthChanged;
+	public event UnityAction<int, int> HealthChanged;
 	public event UnityAction<int> MoneyChanged;
 	public event UnityAction Died;
 
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 	{
 		_timeAfterLastShot += Time.deltaTime;
 
-		if (Input.GetMouseButtonDown(0) && CurrentHealth > 0 
+		if (Input.GetMouseButtonDown(0) && CurrentHealth > 0
 			&& _timeAfterLastShot >= _currentWeapon.CyclicRate && Time.timeScale >= 0)
 		{
 			_currentWeapon.Shot(_shotPoint);
@@ -62,15 +62,31 @@ public class Player : MonoBehaviour
 		MoneyChanged?.Invoke(Money);
 	}
 
-	public void BuyProduct(Product product)
+	public bool BuyProduct(Product product)
 	{
 		Money -= product.Price;
 		MoneyChanged?.Invoke(Money);
 
-		if (product is MedicalKit)	
-			CurrentHealth += ((MedicalKit)product).Health;		
+		if (product is MedicalKit)
+		{
+			CurrentHealth += ((MedicalKit)product).Health;
+
+			if (_health >= CurrentHealth)
+			{
+				HealthChanged?.Invoke(CurrentHealth, _health);
+				return false;
+			}
+			else
+			{
+				CurrentHealth = _health;
+				HealthChanged?.Invoke(_health, _health);
+			}
+
+		}
 		else
 			_weapons.Add((Weapon)product);
+
+		return true;
 	}
 
 	public void NextWeapon()

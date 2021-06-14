@@ -342,9 +342,9 @@ GameObject:
   - component: {fileID: 4330244597586233460}
   - component: {fileID: 8039797208845350222}
   - component: {fileID: 538101646257519914}
-  - component: {fileID: 7300251732298014015}
+  - component: {fileID: 8210832732385735877}
   m_Layer: 5
-  m_Name: Weapon
+  m_Name: Product View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7300251732298014015
+--- !u!114 &8210832732385735877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5507582637761515594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47e3ec6650528b4479639fb3fd40ac60, type: 3}
+  m_Script: {fileID: 11500000, guid: acac150b2a90add4b867fc5b5f643fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _label: {fileID: 4095661336009818639}

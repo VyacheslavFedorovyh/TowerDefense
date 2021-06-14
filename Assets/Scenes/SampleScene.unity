@@ -4694,11 +4694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303d41664366ba84bbe43724f1ed296e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapons:
+  _products:
+  - {fileID: 1126160916788015007, guid: e0db1eacc1a51a6488edb58551d7bf3d, type: 3}
   - {fileID: 2073267375701231400, guid: 27bc38b51fc285a42ad00c0cce939f9a, type: 3}
   - {fileID: 2073267375701231400, guid: 299142a4b1c3f964098706c043ee9579, type: 3}
   _player: {fileID: 1540283729}
-  _teamlate: {fileID: 7300251732298014015, guid: b127ee2c81edf65439b2e74e2cc37e52, type: 3}
+  _teamlate: {fileID: 8210832732385735877, guid: b127ee2c81edf65439b2e74e2cc37e52, type: 3}
   _itemContainer: {fileID: 697552745}
 --- !u!114 &1478047598
 MonoBehaviour:

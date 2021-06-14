@@ -28,9 +28,12 @@ public class Shop : MonoBehaviour
 	{
 		if (product.Price <= _player.Money)
 		{
-			_player.BuyProduct(product);
-			product.Buy();
-			view.SellButtonClick -= OnSellButtonClick;
+			bool bay = _player.BuyProduct(product);
+			if (bay)
+			{
+				product.Buy();
+				view.SellButtonClick -= OnSellButtonClick;
+			}
 		}
 	}
 
