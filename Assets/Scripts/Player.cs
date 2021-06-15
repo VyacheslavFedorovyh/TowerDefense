@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
-public class Player : MonoBehaviour
+public class Player : ObjectPool
 {
 	[SerializeField] private int _health = 100;
 	[SerializeField] private List<Weapon> _weapons;
@@ -28,18 +28,24 @@ public class Player : MonoBehaviour
 		_currentWeapon = _weapons[0];
 		CurrentHealth = _health;
 		_animator = GetComponent<Animator>();
+		Initialize(_currentWeapon.Bullet.gameObject);
 	}
 
 	private void Update()
 	{
-		_timeAfterLastShot += Time.deltaTime;
-
-		if (Input.GetMouseButtonDown(0) && CurrentHealth > 0
-			&& _timeAfterLastShot >= _currentWeapon.CyclicRate && Time.timeScale >= 0)
+		if (CurrentHealth > 0 && Time.timeScale > 0)
 		{
-			_currentWeapon.Shot(_shotPoint);
-			_animator.Play("Shot");
-			_timeAfterLastShot = 0;
+			_timeAfterLastShot += Time.deltaTime;
+
+			if (Input.GetMouseButtonDown(0) && 
+				_timeAfterLastShot >= _currentWeapon.CyclicRate && 
+				TryGetObjecy(out GameObject[] bullets))
+				{
+					_currentWeapon.Shot(bullets, _shotPoint);
+
+					_animator.Play("Shot");
+					_timeAfterLastShot = 0;
+				}
 		}
 	}
 
@@ -81,7 +87,6 @@ public class Player : MonoBehaviour
 				CurrentHealth = _health;
 				HealthChanged?.Invoke(_health, _health);
 			}
-
 		}
 		else
 			_weapons.Add((Weapon)product);
@@ -112,5 +117,7 @@ public class Player : MonoBehaviour
 	private void ChangeWeapon(Weapon weapon)
 	{
 		_currentWeapon = weapon;
+		RemoveObjecy();
+		Initialize(_currentWeapon.Bullet.gameObject);
 	}
 }

@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
 	[SerializeField] private int _health;
 	[SerializeField] private int _reward;
+	[SerializeField] private int _diesDelay;
 
 	private Player _target;
 
@@ -28,7 +29,13 @@ public class Enemy : MonoBehaviour
 		{
 			Died?.Invoke(this);
 			GetComponent<BoxCollider2D>().isTrigger = false;
-			Destroy(gameObject, 8f);
+
+			Invoke("Dies", _diesDelay);
 		}
+	}
+
+	private void Dies()
+	{
+		gameObject.SetActive(false);
 	}
 }
