@@ -9,6 +9,7 @@ public class Player : ObjectPool
 	[SerializeField] private int _health = 100;
 	[SerializeField] private List<Weapon> _weapons;
 	[SerializeField] private Transform _shotPoint;
+	[SerializeField] private AudioSource _hitSound;
 
 	private Weapon _currentWeapon;
 	private int _currentWeaponNumber = 0;
@@ -37,15 +38,14 @@ public class Player : ObjectPool
 		{
 			_timeAfterLastShot += Time.deltaTime;
 
-			if (Input.GetMouseButtonDown(0) && 
-				_timeAfterLastShot >= _currentWeapon.CyclicRate && 
+			if (Input.GetMouseButtonDown(0) &&
+				_timeAfterLastShot >= _currentWeapon.CyclicRate &&
 				TryGetObjecy(out GameObject[] bullets))
-				{
-					_currentWeapon.Shot(bullets, _shotPoint);
-
-					_animator.Play("Shot");
-					_timeAfterLastShot = 0;
-				}
+			{
+				_currentWeapon.Shot(bullets, _shotPoint);
+				_animator.Play("Shot");
+				_timeAfterLastShot = 0;
+			}
 		}
 	}
 
@@ -54,6 +54,7 @@ public class Player : ObjectPool
 		CurrentHealth -= damage;
 		HealthChanged?.Invoke(CurrentHealth, _health);
 		_animator.Play("Hit");
+		_hitSound.Play(0);
 
 		if (CurrentHealth <= 0)
 		{

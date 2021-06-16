@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Shotgun : Weapon
 {
-	[SerializeField] private float _spreadAngle;	
+	[SerializeField] private float _spreadAngle;
 
 	public override void Shot(GameObject[] bullets, Transform shotPoint)
 	{
@@ -19,5 +19,8 @@ public class Shotgun : Weapon
 
 			selector++;
 		}
+
+
+		ShotSound.Play(0);
 	}
 }

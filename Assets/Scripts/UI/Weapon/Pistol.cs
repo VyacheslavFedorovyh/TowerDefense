@@ -9,5 +9,6 @@ public class Pistol : Weapon
 	{
 		bullets.FirstOrDefault().SetActive(true);
 		bullets.FirstOrDefault().transform.position = shotPoint.position;
+		ShotSound.Play(0);
 	}
 }

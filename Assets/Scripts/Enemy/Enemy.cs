@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
 	[SerializeField] private int _health;
 	[SerializeField] private int _reward;
-	[SerializeField] private int _diesDelay;
+	[SerializeField] private int _diesDelay = 9;
 
 	private Player _target;
 

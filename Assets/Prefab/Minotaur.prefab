@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _reward: 1
+  _diesDelay: 9
 --- !u!114 &2416412539131462702
 MonoBehaviour:
   m_ObjectHideFlags: 0
